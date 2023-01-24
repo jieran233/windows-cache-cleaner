@@ -1,0 +1,301 @@
+{
+  "rules": [
+    {
+      "name": "Windows Events",
+      "enable": true,
+      "target": [
+        "$env:SystemRoot\\system32\\winevt\\Logs"
+      ]
+    },
+    {
+      "name": "Windows Logs",
+      "enable": true,
+      "target": [
+        "$env:SystemRoot\\*.log",
+        "$env:SystemRoot\\*.bak",
+        "$env:SystemRoot\\*log.txt",
+        "$env:SystemRoot\\SchedLgU.txt",
+        "$env:SystemRoot\\Performance\\WinSAT\\*.log",
+        "$env:SystemRoot\\Panther\\*.log",
+        "$env:USERPROFILE\\AppData\\Local\\Microsoft\\Windows\\*.log",
+        "$env:USERPROFILE\\AppData\\Local\\MigWiz\\*.log",
+        "$env:USERPROFILE\\AppData\\Local\\Microsoft\\CLR_*\\*.log",
+        "$env:USERPROFILE\\AppData\\Local\\Microsoft\\CLR_*\\*\\*.log",
+        "$env:USERPROFILE\\AppData\\Roaming\\Microsoft\\Windows\\*.log",
+        "$env:SystemDrive\\Logs",
+        "$env:SystemRoot\\Logs",
+        "$env:SystemRoot\\Performance\\WinSAT\\DataStore",
+        "$env:SYSTEMDRIVE\\System Volume Information\\Chkdsk",
+        "$env:ProgramData\\USOShared\\Logs",
+        "$env:SystemRoot\\system32\\WDI\\LogFiles\\*",
+        "$env:SystemRoot\\system32\\LogFiles\\*",
+        "$env:SystemRoot\\debug",
+        "$env:SystemDrive\\Users\\*\\AppData\\Local\\Packages\\*\\AC\\Microsoft\\CLR_*\\*.log",
+        "$env:SystemDrive\\Users\\*\\AppData\\Local\\Packages\\*\\AC\\#!*\\Microsoft\\CLR_*\\*.log",
+        "$env:SystemDrive\\Users\\*\\AppData\\Local\\Packages\\*\\AC\\Microsoft\\CLR_*\\*\\*.log",
+        "$env:SystemDrive\\Users\\*\\AppData\\Local\\Packages\\*\\AC\\#!*\\Microsoft\\CLR_*\\*\\*.log"
+      ]
+    },
+    {
+      "name": "Windows Reports",
+      "enable": true,
+      "target": [
+        "$env:USERPROFILE\\AppData\\Local\\Microsoft\\Windows\\WER",
+        "$env:ProgramData\\Microsoft\\Windows\\WER",
+        "$env:SystemRoot\\LiveKernelReports"
+      ]
+    },
+    {
+      "name": "Windows download cache",
+      "enable": true,
+      "target": [
+        "$env:SystemRoot\\SoftwareDistribution\\Download"
+      ]
+    },
+    {
+      "name": "Windows Delivery Optimization cache",
+      "enable": true,
+      "target": [
+        "$env:SystemRoot\\SoftwareDistribution\\DeliveryOptimization",
+        "$env:SystemRoot\\DeliveryOptimization",
+        "$env:SystemRoot\\ServiceProfiles\\NetworkService\\AppData\\Local\\Microsoft\\Windows\\DeliveryOptimization"
+      ]
+    },
+    {
+      "name": ".NET assembly cache (often clean is not recommended)",
+      "enable": false,
+      "target": [
+        "$env:SystemRoot\\assembly\\NativeImages_v*",
+        "$env:SystemRoot\\assembly\\temp",
+        "$env:SystemRoot\\assembly\\temp"
+      ]
+    },
+    {
+      "name": "Windows Prefetch file (often clean is not recommended)",
+      "enable": false,
+      "target": [
+        "$env:SystemRoot\\Prefetch"
+      ]
+    },
+    {
+      "name": "Windows Explorer icon cache",
+      "enable": false,
+      "target": [
+        "$env:SystemRoot\\SoftwareDistribution\\Download"
+      ]
+    },
+    {
+      "name": "WinSxS cache",
+      "enable": true,
+      "target": [
+        "$env:SystemRoot\\WinSxS\\ManifestCache"
+      ]
+    },
+    {
+      "name": "cache",
+      "enable": true,
+      "target": [
+        "$env:Temp",
+        "$env:SystemDrive\\Found.*",
+        "$env:SystemDrive\\Users\\*\\AppData\\Local\\Packages\\*\\AC\\Temp\\*",
+        "$env:SystemDrive\\Users\\*\\AppData\\Local\\Packages\\*\\AC\\#!*\\Temp\\*",
+        "$env:SystemRoot\\ServiceProfiles\\*\\AppData\\Local\\Temp\\*",
+        "$env:SystemRoot\\system32\\config\\systemprofile\\AppData\\Local\\Temp\\*",
+        "$env:SystemDrive\\Windows\\SysWOW64\\config\\systemprofile\\AppData\\Local\\Temp\\*",
+        "$env:SystemRoot\\Temp",
+        "$env:SystemDrive\\Users\\*\\AppData\\Local\\Packages\\*\\AC\\Temp\\*",
+        "$env:SystemDrive\\Users\\*\\AppData\\Local\\Packages\\*\\AC\\#!*\\Temp\\*",
+        "$env:SystemRoot\\ServiceProfiles\\*\\AppData\\Local\\Temp\\*",
+        "$env:SystemRoot\\system32\\config\\systemprofile\\AppData\\Local\\Temp",
+        "$env:SystemDrive\\Windows\\SysWOW64\\config\\systemprofile\\AppData\\Local\\Temp"
+      ]
+    },
+    {
+      "name": "Windows crash dump files",
+      "enable": true,
+      "target": [
+        "$env:USERPROFILE\\appdata\\local\\crashdumps",
+        "$env:SystemRoot\\MEMORY.DMP",
+        "$env:SystemRoot\\Minidump"
+      ]
+    },
+    {
+      "name": "driver install cache",
+      "enable": true,
+      "target": [
+        "$env:SystemDrive\\AMD",
+        "$env:SystemDrive\\Intel",
+        "$env:SystemDrive\\NVIDIA",
+        "$env:SystemDrive\\Prog",
+        "$env:SystemDrive\\SWSetup"
+      ]
+    },
+    {
+      "name": "Windows UUP update cache",
+      "enable": true,
+      "target": [
+        "$env:SystemDrive\\$Windows.~BT",
+        "$env:SystemDrive\\$Windows.~WS",
+        "$env:SystemDrive\\$Windows.~LS"
+      ]
+    },
+    {
+      "name": "Windows Search cache",
+      "enable": true,
+      "target": [
+        "$env:SystemDrive\\ProgramData\\Microsoft\\Search\\Data\\Applications\\Windows"
+      ]
+    },
+    {
+      "name": "pip download cache",
+      "enable": true,
+      "target": [
+        "$env:USERPROFILE\\AppData\\Local\\pip\\cache"
+      ]
+    },
+    {
+      "name": "~\\.cache (torch, huggingface, paddle, etc.)",
+      "enable": true,
+      "target": [
+        "$env:USERPROFILE\\.cache"
+      ]
+    },
+    {
+      "name": "paddlehub downloaded model cache (.paddlehub)",
+      "enable": true,
+      "target": [
+        "$env:USERPROFILE\\.paddlehub"
+      ]
+    },
+    {
+      "name": "IDM download cache",
+      "enable": true,
+      "target": [
+        "$env:USERPROFILE\\AppData\\Roaming\\IDM\\DwnlData"
+      ]
+    },
+    {
+      "name": "Steam download cache",
+      "enable": true,
+      "target": [
+        "$env:SystemDrive\\Program Files (x86)\\Steam\\steamapps\\downloading"
+      ]
+    },
+    {
+      "name": "Tencent QQ cache",
+      "enable": true,
+      "target": [
+        "$env:USERPROFILE\\AppData\\Roaming\\Tencent\\AndroidAssist",
+        "$env:USERPROFILE\\AppData\\Roaming\\Tencent\\AndroidServer",
+        "$env:USERPROFILE\\AppData\\Roaming\\Tencent\\Logs",
+        "$env:USERPROFILE\\AppData\\Roaming\\Tencent\\TXSSO",
+        "$env:SystemDrive\\Users\\*\\AppData\\Roaming\\Tencent\\Users\\*\\WinTemp\\*",
+        "$env:SystemDrive\\Windows\\SysWOW64\\config\\systemprofile\\AppData\\Roaming\\Tencent",
+        "$env:ProgramData\\temp"
+      ]
+    },
+    {
+      "name": "Tencent WeMeet logs",
+      "enable": true,
+      "target": [
+        "$env:APPDATA\\Tencent\\WeMeet\\Global\\Logs"
+      ]
+    },
+    {
+      "name": "Baidu Netdisk cache",
+      "enable": true,
+      "target": [
+        "$env:APPDATA\\BaiduYunKernel\\Data",
+        "$env:APPDATA\\BaiduYunGuanjia\\logs",
+        "$env:APPDATA\\baidu\\BaiduNetdisk\\AutoUpdate\\Download"
+      ]
+    },
+    {
+      "name": "Process Lasso log",
+      "enable": true,
+      "target": [
+        "$env:ProgramData\\ProcessLasso\\logs\\processlasso.log"
+      ]
+    },
+    {
+      "name": "FastCopy log",
+      "enable": true,
+      "target": [
+        "$env:USERPROFILE\\FastCopy\\Log"
+      ]
+    },
+    {
+      "name": "UltraEdit Restore files",
+      "enable": true,
+      "target": [
+        "$env:APPDATA\\IDMComp\\UltraEdit\\Restore"
+      ]
+    },
+    {
+      "name": "IntelliSense cache of vscode-cpptools",
+      "enable": true,
+      "target": [
+        "$env:USERPROFILE\\AppData\\Local\\Microsoft\\vscode-cpptools\\*"
+      ]
+    },
+    {
+      "name": "NuGet cache",
+      "enable": true,
+      "target": [
+        "$env:USERPROFILE\\AppData\\Local\\NuGet\\Cache",
+        "$env:USERPROFILE\\AppData\\Local\\NuGet\\v3-cache"
+      ]
+    },
+    {
+      "name": "VSCode cache",
+      "enable": true,
+      "target": [
+        "$env:APPDATA\\Code\\Cache"
+      ]
+    },
+    {
+      "name": "clash and clash for windows logs and cache",
+      "enable": true,
+      "target": [
+        "$env:USERPROFILE\\.config\\clash\\logs",
+        "$env:USERPROFILE\\AppData\\Local\\clash_win-updater"
+      ]
+    },
+    {
+      "name": "WeChat cache",
+      "enable": true,
+      "target": [
+        "$env:USERPROFILE\\Documents\\WeChat Files\\wxid_*\\FileStorage\\Cache",
+        "$env:USERPROFILE\\Documents\\WeChat Files\\wxid_*\\Msg\\Multi\\bak"
+      ]
+    },
+    {
+      "name": "miHoYo games' log",
+      "enable": true,
+      "target": [
+        "$env:USERPROFILE\\AppData\\LocalLow\\miHoYo"
+      ]
+    },
+    {
+      "name": "HikariField games' log",
+      "enable": true,
+      "target": [
+        "$env:USERPROFILE\\AppData\\LocalLow\\HikariField"
+      ]
+    },
+    {
+      "name": "Electron Apps' updater",
+      "enable": true,
+      "target": [
+        "$env:USERPROFILE\\AppData\\Local\\*-updater"
+      ]
+    },
+    {
+      "name": "conda cache",
+      "enable": true,
+      "command": [
+        "conda clean --all -y"
+      ]
+    }
+  ]
+}
