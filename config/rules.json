@@ -291,6 +291,13 @@
       ]
     },
     {
+      "name": "Netease CloudMusic cache",
+      "enable": true,
+      "target": [
+        "$env:USERPROFILE\\AppData\\Local\\Netease\\CloudMusic\\Cache"
+      ]
+    },
+    {
       "name": "conda cache",
       "enable": true,
       "command": [

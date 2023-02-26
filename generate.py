@@ -10,16 +10,22 @@ def main():
     config.set_config_directory(os.path.realpath(os.path.join(os.path.split(os.path.realpath(__file__))[0], 'config/')))
     config.add_config_file('rules.json')
 
-    outputs = []
+    outputs = ['Write-Output ":: Cleaning..."\n']
+    du_commands = [["$du_before = Get-PSDrive C\n"],
+                   ['Write-Output " Done."\n', 'Write-Output ":: Calculating..."\n',
+                    "$du_after = Get-PSDrive C\n", 'Write-Output " --> Before:"\n', "Write-Output $du_before\n",
+                    'Write-Output "`n --> After:`n"\n', "Write-Output $du_after\n"]]
 
     rules = config.read_config('rules.json', 'rules')
+    i = 0
     for rule in rules:
+        i = i + 1
         if rule['enable']:
-            outputs.append("echo \":: Cleaning {}\"\n".format(rule['name']))
+            outputs.append("Write-Output \" ({}/{}) Cleaning {}\"\n".format(i, len(rules), rule['name']))
             if "target" in rule:
                 for target in rule['target']:
                     # (PowerShell) `rm -r -fo`
-                    _cmd = "{} {} \"{}\"".format("rm", "-r -fo", target)
+                    _cmd = "{} {} \"{}\"".format("Remove-Item", "-Recurse -Force -ErrorAction SilentlyContinue", target)
                     outputs.append(_cmd + '\n')
             elif "command" in rule:
                 for command in rule['command']:
@@ -29,6 +35,8 @@ def main():
                               .format(rule['name']))
         else:
             logger.printl('W', ":: Ignore {}, because it's been disabled".format(rule['name']))
+
+    outputs = du_commands[0] + outputs + du_commands[1]
 
     with open(os.path.join(os.path.split(os.path.realpath(__file__))[0], 'cache-cleaner.ps1'), 'w') as f:
         f.writelines(outputs)
