@@ -284,7 +284,7 @@
       ]
     },
     {
-      "name": "Electron Apps' updater",
+      "name": "Electron Apps updater",
       "enable": true,
       "target": [
         "$env:USERPROFILE\\AppData\\Local\\*-updater"
@@ -295,6 +295,20 @@
       "enable": true,
       "target": [
         "$env:USERPROFILE\\AppData\\Local\\Netease\\CloudMusic\\Cache"
+      ]
+    },
+    {
+      "name": "MSYS2 (Install from Chocolatey in %SystemDrive%\\tools) Pacman packages cache",
+      "enable": true,
+      "target": [
+        "$env:SystemDrive\\tools\\msys64\\var\\cache\\pacman\\pkg"
+      ]
+    },
+    {
+      "name": "PyInstaller Apps runtime binaries cache",
+      "enable": true,
+      "target": [
+        "$env:USERPROFILE\\AppData\\Local\\pyinstaller\\bincache*"
       ]
     },
     {
