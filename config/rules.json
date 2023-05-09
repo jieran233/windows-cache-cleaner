@@ -312,6 +312,13 @@
       ]
     },
     {
+      "name": "Microsoft Office update download cache",
+      "enable": true,
+      "target": [
+        "$env:ProgramFiles\\Microsoft Office\\Updates\\Download\\PackageFiles"
+      ]
+    },
+    {
       "name": "conda cache",
       "enable": true,
       "command": [
