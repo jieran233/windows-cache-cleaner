@@ -11,10 +11,14 @@ def main():
     config.add_config_file('rules.json')
 
     outputs = ['Write-Output ":: Cleaning..."\n']
-    du_commands = [["$du_before = Get-PSDrive C\n"],
-                   ['Write-Output " Done."\n', 'Write-Output ":: Calculating..."\n',
-                    "$du_after = Get-PSDrive C\n", 'Write-Output " --> Before:"\n', "Write-Output $du_before\n",
-                    'Write-Output "`n --> After:`n"\n', "Write-Output $du_after\n"]]
+    du_commands = [[
+                    """function Convert-BytesToHumanReadable { param([float]$Bytes) if ($Bytes -ge 1GB) {"{0:N2} GB" -f ($Bytes / 1GB)} elseif ($Bytes -ge 1MB) {"{0:N2} MB" -f ($Bytes / 1MB)} elseif ($Bytes -ge 1KB) {"{0:N2} KB" -f ($Bytes / 1KB)} else {"$Bytes Bytes"} }\n""",
+                    '$du_before = (Get-PSDrive -Name C).Used\n'],
+                   ['Write-Output " Done."\n',
+                    'Write-Output ":: Calculating..."\n',
+                    '$du_after = (Get-PSDrive -Name C).Used\n',
+                    '$space_freed = $du_before - $du_after\n',
+                    'Write-Output ("-> {0} freed up." -f (Convert-BytesToHumanReadable $space_freed))']]
 
     rules = config.read_config('rules.json', 'rules')
     i = 0

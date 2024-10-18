@@ -112,7 +112,7 @@
     },
     {
       "name": "Windows crash dump files",
-      "enable": true,
+      "enable": false,
       "target": [
         "$env:USERPROFILE\\appdata\\local\\crashdumps",
         "$env:SystemRoot\\MEMORY.DMP",
@@ -148,21 +148,21 @@
     },
     {
       "name": "pip download cache",
-      "enable": true,
+      "enable": false,
       "target": [
         "$env:USERPROFILE\\AppData\\Local\\pip\\cache"
       ]
     },
     {
       "name": "~\\.cache (torch, huggingface, paddle, etc.)",
-      "enable": true,
+      "enable": false,
       "target": [
         "$env:USERPROFILE\\.cache"
       ]
     },
     {
       "name": "paddlehub downloaded model cache (.paddlehub)",
-      "enable": true,
+      "enable": false,
       "target": [
         "$env:USERPROFILE\\.paddlehub"
       ]
@@ -271,14 +271,14 @@
     },
     {
       "name": "miHoYo games' log",
-      "enable": true,
+      "enable": false,
       "target": [
         "$env:USERPROFILE\\AppData\\LocalLow\\miHoYo"
       ]
     },
     {
       "name": "HikariField games' log",
-      "enable": true,
+      "enable": false,
       "target": [
         "$env:USERPROFILE\\AppData\\LocalLow\\HikariField"
       ]
@@ -316,6 +316,20 @@
       "enable": true,
       "target": [
         "$env:ProgramFiles\\Microsoft Office\\Updates\\Download\\PackageFiles"
+      ]
+    },
+    {
+      "name": "Scoop download cache",
+      "enable": true,
+      "target": [
+        "$env:USERPROFILE\\scoop\\cache\\*"
+      ]
+    },
+    {
+      "name": "mkdir %WINDIR%\\Temp (For ESET)",
+      "enable": false,
+      "command": [
+        "mkdir $env:WINDIR\\Temp"
       ]
     },
     {
